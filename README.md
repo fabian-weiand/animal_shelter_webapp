@@ -13,7 +13,7 @@ There are some basic parameters to initialize the database connection including 
 
 This module has four primary class methods to be used that fulfill the CRUD (Create, Read, Update, Delete) capabilities of the module.
 
-## AnimalShelter.create():
+### AnimalShelter.create():
 
 The create method inserts a document into the database collection named animals. This uses the mongoDB insert_one() method for inserting a single document at a time.
 
@@ -21,7 +21,7 @@ The create method inserts a document into the database collection named animals.
 
 `:return`: bool for success or failure.
 
-## AnimalShelter.read():
+### AnimalShelter.read():
 
 The read method will find a document in the database and return it to the caller. This uses the mongoDB find() operation to find one or many documents based on the filter.
 
@@ -29,7 +29,7 @@ The read method will find a document in the database and return it to the caller
 
 `:return`: list of dict objects are returned
 
-AnimalShelter.update():
+### AnimalShelter.update():
 
 The update method will accept an update filter and an update set to send to the database. This method uses the mongoDB update_one() method to update a single document at a time.
 `:param update_filter: a query that matches the document to update.`
@@ -40,7 +40,7 @@ The update method will accept an update filter and an update set to send to the 
 
 `:return: bool True if modified count is 1.`
 
-AnimalShelter.delete():
+### AnimalShelter.delete():
 
 The delete method will take a single document and delete it from the database. This uses the mongoDB delete_one() to delete a single document at a time.
 
@@ -48,9 +48,10 @@ The delete method will take a single document and delete it from the database. T
 
 `:return`: returns a bool for success or failure
 
-Installation
+# Installation
 In order to use this application there are a few set of tools that will be required. 
-Tools
+
+### Tools
 MongoDB version 4.2.6
 MongDB was chosen a  NoSQL database for it reliability and performance characteristics available. MongoDB is a popular NoSQL database use across the industry. Follow the MongoDB documentation to install MongoDB
 
@@ -65,7 +66,7 @@ Pymongo is a python package that is installed and used with this project. This p
 This package can be installed with pip
 `pip install pymongo`
 
-Setting up the Database
+### Setting up the Database
 1.	Using mongo shell create a new database named AAC	
 	use AAC
 
@@ -75,20 +76,20 @@ Setting up the Database
 3.	Import the animal shelter data to the database
 mongoimport -u “aacuser” –db AAC –authenticationDatabase “AAC” –port $MD_PORT –type=csv –headerline –file ./aac_shelter_outcomes.csv
 
-Usage
-Import the module
+# Usage
+### Import the module
 ```python
 from animal_shelter import AnimalShelter 
 ```
  
-Initialize a database connection
+### Initialize a database connection
 ```python
 # Initialize database connection.
 # must provide all five parameters
 dbo = AnimalShelter("aacuser", "password", "localhost", 52170, "AAC")
 ```
  
-Create a new Document
+### Create a new Document
 ```python
 # Create a new document definition
 new_doc = {
@@ -121,7 +122,7 @@ else:
     print("test failed creating 1 new doc") 
 ```
  
-Read a Document
+### Read a Document
 ```python
 # the read method will return a list of dicts and will require looping through the results
 for doc in dbo.read({"animal_id": "SammyTest"}):
@@ -129,7 +130,7 @@ for doc in dbo.read({"animal_id": "SammyTest"}):
     print("document read success")
 ```
  
-Update a Document
+### Update a Document
 ```python
 dbo.update({"animal_id": "SammyTest"}, {"$set": {"animal_id": "NewSammyTest"}})
 for doc in dbo.read({"animal_id": "NewSammyTest"}):
@@ -137,7 +138,7 @@ for doc in dbo.read({"animal_id": "NewSammyTest"}):
     print("document update success")
 ```
 
-Delete a Document
+### Delete a Document
 ```python
 # delete method is strictly a true/false call.
 if dbo.delete({"animal_id": "SammyTest"}):
@@ -147,7 +148,7 @@ else:
 ```
 
  
-Web Dash Screenshots
+# Web Dash Screenshots
 
 Unfiltered
  
