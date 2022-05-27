@@ -1,10 +1,10 @@
-About the Project
+# About the Project
 The Animal Shelter Project Animal Shelter app is a software application that can work with existing database data from the animal shelters to identify and categorize available dogs for search and rescue. The application has both a web dash frontend and MongoDB backend to store and search records.
 
-Motivation
+# Motivation
 A customer of Global Rain identifies dogs that are good candidates for search-and-rescue training. When trained, these dogs are able to find and help to rescue humans or other animals, often in life-threatening conditions. To help identify dogs for training, the customer has reached an agreement with a non-profit agency that operates five animal shelters in the region around Austin, Texas. The customer is requesting a software application that can work with existing database data from the animal shelters to identify and categorize available dogs for search and rescue.
 
-Getting Started
+# Getting Started
 If you would like to use this project’s module you can simply add the animal_shelter.py file to your project an import is as usual. This module is not a PyPi package and therefore cannot be used with pip. 
 
 There are some basic parameters to initialize the database connection including the username and password for the users to authenticate mongodb. Additionally you will need to provide the port number and the database name that you have chose to use for yoru mongodb implementation. Since mongoDB can be implemented in many ways by the engineering team, it is important to note all of these key parameters.
@@ -13,7 +13,7 @@ There are some basic parameters to initialize the database connection including 
 
 This module has four primary class methods to be used that fulfill the CRUD (Create, Read, Update, Delete) capabilities of the module.
 
-AnimalShelter.create():
+## AnimalShelter.create():
 
 The create method inserts a document into the database collection named animals. This uses the mongoDB insert_one() method for inserting a single document at a time.
 
@@ -21,7 +21,7 @@ The create method inserts a document into the database collection named animals.
 
 `:return`: bool for success or failure.
 
-AnimalShelter.read():
+## AnimalShelter.read():
 
 The read method will find a document in the database and return it to the caller. This uses the mongoDB find() operation to find one or many documents based on the filter.
 
